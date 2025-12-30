@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>应用案例 - 智泓创芯</title>
+    <meta name="description" content="智见实效，弘聚标杆 —— 行业智能应用全景展示" />
+
+    <!-- 字体和图标 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+    <!-- 样式 -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        /* 页面特定样式 */
+        .page-header {
+            background: linear-gradient(rgba(0, 21, 48, 0.9), rgba(0, 21, 48, 0.9));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cases-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .case-category {
+            display: none;
+        }
+
+        .case-category.active {
+            display: block;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .case-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .case-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .case-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .case-content {
+            padding: 1.5rem;
+        }
+
+        .case-category-badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .case-desc {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .case-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <span>智泓创芯</span>
+        </a>
+
+        <!-- 桌面导航 -->
+        <div class="desktop-nav">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="solutions.html" class="nav-link">解决方案</a>
+            <a href="cases.html" class="nav-link active">案例</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="contact.html" class="nav-link">联系我们</a>
+        </div>
+
+        <!-- 移动菜单按钮 -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="icon-menu"></i>
+        </button>
+    </div>
+
+    <!-- 移动导航 -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-link">首页</a>
+        <a href="solutions.html" class="mobile-nav-link">解决方案</a>
+        <a href="cases.html" class="mobile-nav-link active">案例</a>
+        <a href="about.html" class="mobile-nav-link">关于我们</a>
+        <a href="contact.html" class="mobile-nav-link">联系我们</a>
+    </div>
+</nav>
+
+<!-- 页面头部 -->
+<header class="page-header">
+    <div class="container-custom">
+        <h1 class="page-title">应用案例</h1>
+        <p class="page-subtitle">智见实效，弘聚标杆 —— 行业智能应用全景展示</p>
+    </div>
+</header>
+
+<!-- 案例列表 -->
+<section class="cases-section">
+    <div class="container-custom">
+        <!-- 过滤器 -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">全部案例</button>
+            <button class="filter-btn" data-filter="industrial">工业制造</button>
+            <button class="filter-btn" data-filter="auto">汽车制造</button>
+            <button class="filter-btn" data-filter="food">食品包装</button>
+            <button class="filter-btn" data-filter="tobacco">烟草工业</button>
+            <button class="filter-btn" data-filter="leather">皮革纺织</button>
+        </div>
+
+        <!-- 全部案例 -->
+        <div class="case-category active" id="all">
+            <div class="case-grid">
+                <!-- 案例1 -->
+                <div class="case-item animate-in" data-category="industrial">
+                    <img src="images/pcb_inspection_closeup.png" alt="电子板缺陷检测" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">工业制造</span>
+                        <h3 class="case-title">电子板缺陷检测</h3>
+                        <p class="case-desc">针对高精度PCB板，解决多层、微缺等微小缺陷在线检测难题。通过3D线阵视觉与深度学习算法融合，实现95%以上检出率。</p>
+                        <a href="case-detail.html?id=pcb" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 案例2 -->
+                <div class="case-item animate-in" data-category="auto">
+                    <img src="images/automotive_manufacturing_line.png" alt="汽车视觉检测系统" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">汽车制造</span>
+                        <h3 class="case-title">汽车视觉检测系统</h3>
+                        <p class="case-desc">针对整车制造中外观、漆面、涂胶等关键环节的自动化检测需求。实现多车型混线生产下的柔性检测。</p>
+                        <a href="case-detail.html?id=car-vision" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 案例3 -->
+                <div class="case-item animate-in" data-category="industrial">
+                    <img src="images/ceramic_defect_detection.png" alt="陶瓷外观缺陷检测" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">工业制造</span>
+                        <h3 class="case-title">陶瓷外观缺陷检测</h3>
+                        <p class="case-desc">针对陶瓷杯体表面的孔洞、色脏、堆釉等多种复杂缺陷，解决人工检测标准不一的问题。</p>
+                        <a href="case-detail.html?id=ceramic" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 案例4 -->
+                <div class="case-item animate-in" data-category="food">
+                    <img src="images/food_packaging_inspection.png" alt="食品包装视觉检测" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">食品包装</span>
+                        <h3 class="case-title">食品包装视觉检测</h3>
+                        <p class="case-desc">适用高速产线，解决食品包装的破损、漏油等缺陷在线检测难题，确保食品安全。</p>
+                        <a href="case-detail.html?id=food-pack" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 案例5 -->
+                <div class="case-item animate-in" data-category="tobacco">
+                    <img src="images/tobacco_industry_automation.png" alt="卷烟厂智能监控系统" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">烟草工业</span>
+                        <h3 class="case-title">卷烟厂智能监控系统</h3>
+                        <p class="case-desc">覆盖制丝、卷包等工艺段，解决烟包变形、设备堵料、虫害监测等问题。</p>
+                        <a href="case-detail.html?id=tobacco-monitor" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 案例6 -->
+                <div class="case-item animate-in" data-category="leather">
+                    <img src="images/leather_textile_texture.png" alt="牛皮表面缺陷检测" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">皮革纺织</span>
+                        <h3 class="case-title">牛皮表面缺陷检测</h3>
+                        <p class="case-desc">针对牛皮表面的色差、刀伤等多种缺陷，实现快速定位与分类，提升皮革品级判定效率。</p>
+                        <a href="case-detail.html?id=leather-surface" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工业制造案例 -->
+        <div class="case-category" id="industrial">
+            <div class="case-grid">
+                <!-- 工业制造案例1 -->
+                <div class="case-item animate-in">
+                    <img src="images/pcb_inspection_closeup.png" alt="电子板缺陷检测" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">工业制造</span>
+                        <h3 class="case-title">电子板缺陷检测</h3>
+                        <p class="case-desc">针对高精度PCB板，解决多层、微缺等微小缺陷在线检测难题。</p>
+                        <a href="case-detail.html?id=pcb" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 工业制造案例2 -->
+                <div class="case-item animate-in">
+                    <img src="images/ceramic_defect_detection.png" alt="陶瓷外观缺陷检测" class="case-image">
+                    <div class="case-content">
+                        <span class="case-category-badge">工业制造</span>
+                        <h3 class="case-title">陶瓷外观缺陷检测</h3>
+                        <p class="case-desc">针对陶瓷杯体表面的孔洞、色脏、堆釉等多种复杂缺陷。</p>
+                        <a href="case-detail.html?id=ceramic" class="btn btn-outline" style="width: 100%;">
+                            查看详情 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 其他分类案例同理添加 -->
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--primary); color: white; padding: 80px 0;">
+    <div class="container-custom text-center">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;color: var(--white)">想要了解更多案例细节？</h2>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+            我们的专家团队可以为您详细解答技术细节和实施效果
+        </p>
+        <a href="contact.html" class="btn btn-outline" style="background: white; color: var(--primary);">
+            咨询案例详情 <i class="icon-message-circle"></i>
+        </a>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <span>智泓创芯</span>
+            </div>
+            <p class="footer-slogan">智能工业质检解决方案</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>解决方案</h3>
+            <ul>
+                <li><a href="solutions.html">工业制造</a></li>
+                <li><a href="solutions.html">汽车制造</a></li>
+                <li><a href="solutions.html">食品包装</a></li>
+                <li><a href="solutions.html">烟草工业</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>应用案例</h3>
+            <ul>
+                <li><a href="cases.html">电子板缺陷检测</a></li>
+                <li><a href="cases.html">汽车视觉检测系统</a></li>
+                <li><a href="cases.html">牛皮表面缺陷检测</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>关于我们</h3>
+            <ul>
+                <li><a href="about.html">公司介绍</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="icon-phone"></i>
+                    <span>138-0000-0000</span>
+                </div>
+                <div class="contact-item">
+                    <i class="icon-mail"></i>
+                    <span>contact@zhihong.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2024 智泓创芯 All rights reserved.</p>
+        <p>沪ICP备00000000号-1</p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// 移动菜单切换
+		const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+		const mobileNav = document.getElementById('mobileNav');
+
+		if (mobileMenuBtn && mobileNav) {
+			mobileMenuBtn.addEventListener('click', function() {
+				mobileNav.classList.toggle('active');
+
+				const icon = mobileMenuBtn.querySelector('i');
+				if (mobileNav.classList.contains('active')) {
+					icon.className = 'icon-x';
+					document.body.style.overflow = 'hidden';
+				} else {
+					icon.className = 'icon-menu';
+					document.body.style.overflow = '';
+				}
+			});
+
+			const mobileLinks = mobileNav.querySelectorAll('a');
+			mobileLinks.forEach(link => {
+				link.addEventListener('click', function() {
+					mobileNav.classList.remove('active');
+					mobileMenuBtn.querySelector('i').className = 'icon-menu';
+					document.body.style.overflow = '';
+				});
+			});
+		}
+
+		// 案例过滤器
+		const filterButtons = document.querySelectorAll('.filter-btn');
+		const caseCategories = document.querySelectorAll('.case-category');
+		const allCaseItems = document.querySelectorAll('.case-item[data-category]');
+
+		filterButtons.forEach(button => {
+			button.addEventListener('click', function() {
+				// 更新按钮状态
+				filterButtons.forEach(btn => btn.classList.remove('active'));
+				this.classList.add('active');
+
+				const filter = this.getAttribute('data-filter');
+
+				// 隐藏所有分类
+				caseCategories.forEach(category => {
+					category.classList.remove('active');
+				});
+
+				if (filter === 'all') {
+					// 显示全部案例
+					document.getElementById('all').classList.add('active');
+					allCaseItems.forEach(item => {
+						item.style.display = 'block';
+					});
+				} else {
+					// 显示特定分类
+					document.getElementById(filter).classList.add('active');
+
+					// 隐藏其他分类的案例
+					allCaseItems.forEach(item => {
+						if (item.getAttribute('data-category') === filter) {
+							item.style.display = 'block';
+						} else {
+							item.style.display = 'none';
+						}
+					});
+				}
+
+				// 触发动画
+				const visibleItems = document.querySelectorAll('.case-item[style="display: block"]');
+				visibleItems.forEach((item, index) => {
+					setTimeout(() => {
+						item.classList.add('animate-in');
+					}, index * 100);
+				});
+			});
+		});
+
+		// 滚动动画
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver(function(entries) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('animate-in');
+				}
+			});
+		}, observerOptions);
+
+		const animatedElements = document.querySelectorAll('.animate-in');
+		animatedElements.forEach(element => {
+			observer.observe(element);
+		});
+	});
+</script>
+</body>
+</html>

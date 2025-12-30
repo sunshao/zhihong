@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解决方案 - 智泓创芯</title>
+    <meta name="description" content="智引革新，弘聚效能 —— 全方位行业智能解决方案" />
+
+    <!-- 字体和图标 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+    <!-- 样式 -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        /* 页面特定样式 */
+        .page-header {
+            background: linear-gradient(rgba(0, 21, 48, 0.9), rgba(0, 21, 48, 0.9));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .solutions-list {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .solution-detail {
+            margin-bottom: 60px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .solution-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--primary);
+            color: white;
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .solution-icon i {
+            font-size: 1.75rem;
+        }
+
+        .solution-info h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-content {
+            padding: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature-item h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .feature-item p {
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <span>智泓创芯</span>
+        </a>
+
+        <!-- 桌面导航 -->
+        <div class="desktop-nav">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="solutions.html" class="nav-link active">解决方案</a>
+            <a href="cases.html" class="nav-link">案例</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="contact.html" class="nav-link">联系我们</a>
+        </div>
+
+        <!-- 移动菜单按钮 -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="icon-menu"></i>
+        </button>
+    </div>
+
+    <!-- 移动导航 -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-link">首页</a>
+        <a href="solutions.html" class="mobile-nav-link active">解决方案</a>
+        <a href="cases.html" class="mobile-nav-link">案例</a>
+        <a href="about.html" class="mobile-nav-link">关于我们</a>
+        <a href="contact.html" class="mobile-nav-link">联系我们</a>
+    </div>
+</nav>
+
+<!-- 页面头部 -->
+<header class="page-header">
+    <div class="container-custom">
+        <h1 class="page-title">解决方案</h1>
+        <p class="page-subtitle">智引革新，弘聚效能 —— 全方位行业智能解决方案</p>
+        <a href="#solutions-list" class="btn">
+            查看全部方案 <i class="icon-arrow-down"></i>
+        </a>
+    </div>
+</header>
+
+<!-- 解决方案列表 -->
+<section id="solutions-list" class="solutions-list">
+    <div class="container-custom">
+        <!-- 工业制造解决方案 -->
+        <div class="solution-detail animate-in">
+            <div class="solution-header">
+                <div class="solution-icon">
+                    <i class="icon-factory"></i>
+                </div>
+                <div class="solution-info">
+                    <h2>工业制造</h2>
+                    <p>针对3C电子、家电、五金等外观、尺寸、装配缺陷的自动化检测</p>
+                </div>
+            </div>
+            <div class="solution-content">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>智能制造与决策优化</h4>
+                        <p>双向传导机制打通工艺端与质检端，基于实时质检数据动态调整工艺参数，实现生产过程的自适应优化。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>智能质检核心方案</h4>
+                        <p>采用先进的深度学习算法，结合传统机器视觉技术，针对复杂纹理、微小缺陷、反光表面等场景专项优化。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>高精度在线检测</h4>
+                        <p>支持99.9%以上的检测精度，实现毫米级缺陷识别，大幅提升产品质量。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>柔性部署方案</h4>
+                        <p>模块化设计，支持快速部署和灵活扩展，适应不同规模的生产线需求。</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="solution-detail.html?id=industrial" class="btn">
+                        查看详细方案 <i class="icon-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 汽车制造解决方案 -->
+        <div class="solution-detail animate-in">
+            <div class="solution-header">
+                <div class="solution-icon">
+                    <i class="icon-car"></i>
+                </div>
+                <div class="solution-info">
+                    <h2>汽车制造</h2>
+                    <p>针对汽车制造中外观、漆面、涂胶等关键环节的自动化检测需求</p>
+                </div>
+            </div>
+            <div class="solution-content">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>整车外观检测</h4>
+                        <p>360度全方位检测，覆盖车身漆面、玻璃、灯光等所有外观部件。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>精密部件检测</h4>
+                        <p>针对发动机、变速箱等精密部件的尺寸精度和装配质量检测。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>涂装质量检测</h4>
+                        <p>漆面划痕、色差、橘皮纹等表面缺陷的自动识别和分类。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>装配完整性检测</h4>
+                        <p>确保所有零部件正确安装，避免漏装、错装问题。</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="solution-detail.html?id=auto" class="btn">
+                        查看详细方案 <i class="icon-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 食品包装解决方案 -->
+        <div class="solution-detail animate-in">
+            <div class="solution-header">
+                <div class="solution-icon">
+                    <i class="icon-package"></i>
+                </div>
+                <div class="solution-info">
+                    <h2>食品包装</h2>
+                    <p>适用高速产线，解决食品包装的破损、漏油等缺陷在线检测难题</p>
+                </div>
+            </div>
+            <div class="solution-content">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>高速在线检测</h4>
+                        <p>支持每分钟300包以上的高速检测，满足现代食品生产线需求。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>多类型缺陷识别</h4>
+                        <p>同时检测包装破损、封口不良、漏油、异物等多种缺陷类型。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>食品安全保障</h4>
+                        <p>确保包装完整性和卫生标准，保障食品安全。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>数据追溯系统</h4>
+                        <p>完整的生产批次数据记录，支持产品追溯和质量管理。</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="solution-detail.html?id=food" class="btn">
+                        查看详细方案 <i class="icon-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 烟草工业解决方案 -->
+        <div class="solution-detail animate-in">
+            <div class="solution-header">
+                <div class="solution-icon">
+                    <i class="icon-flame"></i>
+                </div>
+                <div class="solution-info">
+                    <h2>烟草工业</h2>
+                    <p>覆盖制丝、卷包等工艺段，解决烟包变形、设备堵料、虫害监测等问题</p>
+                </div>
+            </div>
+            <div class="solution-content">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>烟包质量检测</h4>
+                        <p>检测烟包外观、尺寸、封口质量，确保产品一致性。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>设备状态监控</h4>
+                        <p>实时监控设备运行状态，预防堵料、卡纸等故障。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>虫害智能监测</h4>
+                        <p>基于图像识别的虫害监测系统，保障原料存储安全。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>生产过程优化</h4>
+                        <p>通过数据分析优化生产参数，提升生产效率和产品质量。</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="solution-detail.html?id=tobacco" class="btn">
+                        查看详细方案 <i class="icon-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 皮革纺织解决方案 -->
+        <div class="solution-detail animate-in">
+            <div class="solution-header">
+                <div class="solution-icon">
+                    <i class="icon-feather"></i>
+                </div>
+                <div class="solution-info">
+                    <h2>皮革纺织</h2>
+                    <p>针对牛皮表面的色差、刀伤等多种缺陷，解决人工检测速度慢、易漏检痛点</p>
+                </div>
+            </div>
+            <div class="solution-content">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>表面缺陷检测</h4>
+                        <p>自动识别色差、刀伤、虫咬、疤痕等各种皮革表面缺陷。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>纹理分析</h4>
+                        <p>基于深度学习的纹理识别，准确分类不同等级和类型的皮革。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>快速分级系统</h4>
+                        <p>实现皮革质量的自动分级，提升分级准确性和效率。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>瑕疵定位标记</h4>
+                        <p>精确标记缺陷位置，辅助后续裁剪和加工工序。</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="solution-detail.html?id=leather" class="btn">
+                        查看详细方案 <i class="icon-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--primary); color: white; padding: 80px 0;">
+    <div class="container-custom text-center">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;color: var(--white)">找不到适合的解决方案？</h2>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+            我们有丰富的行业经验，可以根据您的具体需求定制专属解决方案
+        </p>
+        <a href="contact.html" class="btn btn-outline" style="background: white; color: var(--primary);">
+            定制方案咨询 <i class="icon-message-circle"></i>
+        </a>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <span>智泓创芯</span>
+            </div>
+            <p class="footer-slogan">智能工业质检解决方案</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>解决方案</h3>
+            <ul>
+                <li><a href="solutions.html">工业制造</a></li>
+                <li><a href="solutions.html">汽车制造</a></li>
+                <li><a href="solutions.html">食品包装</a></li>
+                <li><a href="solutions.html">烟草工业</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>应用案例</h3>
+            <ul>
+                <li><a href="cases.html">电子板缺陷检测</a></li>
+                <li><a href="cases.html">汽车视觉检测系统</a></li>
+                <li><a href="cases.html">牛皮表面缺陷检测</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>关于我们</h3>
+            <ul>
+                <li><a href="about.html">公司介绍</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="icon-phone"></i>
+                    <span>138-0000-0000</span>
+                </div>
+                <div class="contact-item">
+                    <i class="icon-mail"></i>
+                    <span>contact@zhihong.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2024 智泓创芯 All rights reserved.</p>
+        <p>沪ICP备00000000号-1</p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// 移动菜单切换
+		const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+		const mobileNav = document.getElementById('mobileNav');
+
+		if (mobileMenuBtn && mobileNav) {
+			mobileMenuBtn.addEventListener('click', function() {
+				mobileNav.classList.toggle('active');
+
+				const icon = mobileMenuBtn.querySelector('i');
+				if (mobileNav.classList.contains('active')) {
+					icon.className = 'icon-x';
+					document.body.style.overflow = 'hidden';
+				} else {
+					icon.className = 'icon-menu';
+					document.body.style.overflow = '';
+				}
+			});
+
+			const mobileLinks = mobileNav.querySelectorAll('a');
+			mobileLinks.forEach(link => {
+				link.addEventListener('click', function() {
+					mobileNav.classList.remove('active');
+					mobileMenuBtn.querySelector('i').className = 'icon-menu';
+					document.body.style.overflow = '';
+				});
+			});
+		}
+
+		// 滚动动画
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver(function(entries) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('animate-in');
+				}
+			});
+		}, observerOptions);
+
+		const animatedElements = document.querySelectorAll('.animate-in');
+		animatedElements.forEach(element => {
+			observer.observe(element);
+		});
+	});
+</script>
+</body>
+</html>
