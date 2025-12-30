@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解决方案详情 - 智泓创芯</title>
+
+    <!-- 字体和图标 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+    <!-- 样式 -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        /* 页面特定样式 */
+        .solution-header {
+            background: linear-gradient(rgba(0, 21, 48, 0.9), rgba(0, 21, 48, 0.9));
+            color: white;
+            padding: 140px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .solution-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .solution-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .solution-content {
+            padding: 80px 0;
+        }
+
+        .solution-overview {
+            margin-bottom: 60px;
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 12px;
+        }
+
+        .solution-overview h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .solution-overview p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .features-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        .advantages-section {
+            background: var(--light);
+            padding: 4rem 0;
+            margin-bottom: 60px;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .advantage-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .advantage-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .advantage-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .advantage-item h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .application-section {
+            margin-bottom: 60px;
+        }
+
+        .application-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        .case-studies {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .case-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .case-card-content {
+            padding: 1.5rem;
+        }
+
+        .case-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .case-card p {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid,
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid,
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <span>智泓创芯</span>
+        </a>
+
+        <!-- 桌面导航 -->
+        <div class="desktop-nav">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="solutions.html" class="nav-link active">解决方案</a>
+            <a href="cases.html" class="nav-link">案例</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="contact.html" class="nav-link">联系我们</a>
+        </div>
+
+        <!-- 移动菜单按钮 -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="icon-menu"></i>
+        </button>
+    </div>
+
+    <!-- 移动导航 -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-link">首页</a>
+        <a href="solutions.html" class="mobile-nav-link active">解决方案</a>
+        <a href="cases.html" class="mobile-nav-link">案例</a>
+        <a href="about.html" class="mobile-nav-link">关于我们</a>
+        <a href="contact.html" class="mobile-nav-link">联系我们</a>
+    </div>
+</nav>
+
+<!-- 解决方案头部 -->
+<header class="solution-header" id="solutionHeader">
+    <div class="container-custom">
+        <h1 class="solution-title" id="solutionTitle">工业制造AI视觉质检方案</h1>
+        <p class="solution-subtitle" id="solutionDesc">针对3C电子、家电、五金等外观、尺寸、装配缺陷的自动化检测</p>
+    </div>
+</header>
+
+<!-- 解决方案内容 -->
+<main class="solution-content">
+    <div class="container-custom">
+        <!-- 方案概述 -->
+        <section class="solution-overview animate-in">
+            <h2>方案概述</h2>
+            <p id="solutionOverview">
+                本方案针对工业制造领域的自动化质检需求，结合先进的AI视觉技术和深度学习算法，为企业提供高效、精准的质量检测解决方案。系统可自动识别产品外观缺陷、尺寸偏差、装配错误等问题，大幅提升质检效率和准确率。
+            </p>
+            <p>
+                通过部署智能化视觉检测系统，企业可实现24小时不间断的自动化质检，降低人工成本，提高产品质量一致性，建立完善的质量追溯体系。
+            </p>
+        </section>
+
+        <!-- 核心功能 -->
+        <section class="features-section animate-in">
+            <h2 class="section-title">核心功能</h2>
+            <div class="features-grid" id="featuresGrid">
+                <div class="feature-card">
+                    <h3>智能制造与决策优化</h3>
+                    <p>双向传导机制打通工艺端与质检端，基于实时质检数据动态调整工艺参数，实现生产过程的自适应优化，显著提升产品良率和生产效率。</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>智能质检核心方案</h3>
+                    <p>采用先进的深度学习算法，结合传统机器视觉技术，针对复杂纹理、微小缺陷、反光表面等场景专项优化。支持多种缺陷类型的同步检测与分类。</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>高精度在线检测</h3>
+                    <p>支持99.9%以上的检测精度，实现毫米级缺陷识别，检测速度高达每分钟300件，完美匹配高速生产线需求。</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>柔性部署方案</h3>
+                    <p>模块化设计，支持快速部署和灵活扩展，适应不同规模的生产线需求。系统可无缝集成到现有生产环境中。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 方案优势 -->
+        <section class="advantages-section animate-in">
+            <h2 class="section-title">方案优势</h2>
+            <div class="advantages-grid" id="advantagesGrid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="icon-target"></i>
+                    </div>
+                    <h4>高精度检测</h4>
+                </div>
+
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="icon-zap"></i>
+                    </div>
+                    <h4>高效率处理</h4>
+                </div>
+
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="icon-cpu"></i>
+                    </div>
+                    <h4>智能算法</h4>
+                </div>
+
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="icon-layers"></i>
+                    </div>
+                    <h4>柔性部署</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应用场景 -->
+        <section class="application-section animate-in">
+            <h2 class="section-title">应用场景</h2>
+            <div class="application-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>3C电子制造</h3>
+                        <p>针对手机、平板、笔记本电脑等电子产品的外观检测、装配完整性检查、屏幕缺陷检测等。支持玻璃、金属、塑料等多种材质的表面检测。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>家电生产</h3>
+                        <p>适用于空调、冰箱、洗衣机等家电产品的外观喷漆检测、装配检验、标签识别、包装完整性检查等环节。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>五金零件</h3>
+                        <p>针对螺丝、螺母、轴承等五金零件的尺寸测量、表面缺陷检测、螺纹识别、材质分类等质量检测需求。</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>PCB板检测</h3>
+                        <p>实现PCB板的焊点质量检测、元件缺失检测、线路短路/断路识别、字符印刷质量检测等。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 相关案例 -->
+        <section class="case-studies animate-in">
+            <h2 class="section-title">相关案例</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <img src="images/pcb_inspection_closeup.png" alt="电子板缺陷检测" class="case-image">
+                    <div class="case-card-content">
+                        <h3>电子板缺陷检测</h3>
+                        <p>针对高精度PCB板，解决多层、微缺等微小缺陷在线检测难题。</p>
+                        <a href="case-detail.html?id=pcb" class="btn btn-outline" style="width: 100%;">
+                            查看案例 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <img src="images/ceramic_defect_detection.png" alt="陶瓷外观缺陷检测" class="case-image">
+                    <div class="case-card-content">
+                        <h3>陶瓷外观缺陷检测</h3>
+                        <p>针对陶瓷杯体表面的孔洞、色脏、堆釉等多种复杂缺陷。</p>
+                        <a href="case-detail.html?id=ceramic" class="btn btn-outline" style="width: 100%;">
+                            查看案例 <i class="icon-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- CTA -->
+<section style="background: var(--primary); color: white; padding: 80px 0;">
+    <div class="container-custom text-center">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;color: var(--white)">获取专属解决方案</h2>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+            我们的专家将根据您的具体需求，为您定制最适合的解决方案
+        </p>
+        <a href="contact.html" class="btn btn-outline" style="background: white; color: var(--primary);">
+            咨询方案详情 <i class="icon-message-circle"></i>
+        </a>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <span>智泓创芯</span>
+            </div>
+            <p class="footer-slogan">智能工业质检解决方案</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>解决方案</h3>
+            <ul>
+                <li><a href="solutions.html">工业制造</a></li>
+                <li><a href="solutions.html">汽车制造</a></li>
+                <li><a href="solutions.html">食品包装</a></li>
+                <li><a href="solutions.html">烟草工业</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>应用案例</h3>
+            <ul>
+                <li><a href="cases.html">电子板缺陷检测</a></li>
+                <li><a href="cases.html">汽车视觉检测系统</a></li>
+                <li><a href="cases.html">牛皮表面缺陷检测</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>关于我们</h3>
+            <ul>
+                <li><a href="about.html">公司介绍</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="icon-phone"></i>
+                    <span>138-0000-0000</span>
+                </div>
+                <div class="contact-item">
+                    <i class="icon-mail"></i>
+                    <span>contact@zhihong.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2024 智泓创芯 All rights reserved.</p>
+        <p>沪ICP备00000000号-1</p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// 移动菜单切换
+		const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+		const mobileNav = document.getElementById('mobileNav');
+
+		if (mobileMenuBtn && mobileNav) {
+			mobileMenuBtn.addEventListener('click', function() {
+				mobileNav.classList.toggle('active');
+
+				const icon = mobileMenuBtn.querySelector('i');
+				if (mobileNav.classList.contains('active')) {
+					icon.className = 'icon-x';
+					document.body.style.overflow = 'hidden';
+				} else {
+					icon.className = 'icon-menu';
+					document.body.style.overflow = '';
+				}
+			});
+
+			const mobileLinks = mobileNav.querySelectorAll('a');
+			mobileLinks.forEach(link => {
+				link.addEventListener('click', function() {
+					mobileNav.classList.remove('active');
+					mobileMenuBtn.querySelector('i').className = 'icon-menu';
+					document.body.style.overflow = '';
+				});
+			});
+		}
+
+		// 从URL获取方案ID
+		const urlParams = new URLSearchParams(window.location.search);
+		const solutionId = urlParams.get('id') || 'industrial';
+
+		// 解决方案数据
+		const solutions = {
+			industrial: {
+				title: '工业制造AI视觉质检方案',
+				desc: '针对3C电子、家电、五金等外观、尺寸、装配缺陷的自动化检测',
+				overview: '本方案针对工业制造领域的自动化质检需求，结合先进的AI视觉技术和深度学习算法，为企业提供高效、精准的质量检测解决方案。系统可自动识别产品外观缺陷、尺寸偏差、装配错误等问题，大幅提升质检效率和准确率。',
+				image: 'images/pcb_inspection_closeup.png'
+			},
+			auto: {
+				title: '汽车制造视觉检测方案',
+				desc: '针对汽车制造中外观、漆面、涂胶等关键环节的自动化检测需求',
+				overview: '汽车制造对产品质量要求极高，本方案专门针对汽车制造过程中的关键质检环节设计，包括车身外观检测、漆面质量检查、涂胶完整性验证等。',
+				image: 'images/automotive_manufacturing_line.png'
+			},
+			food: {
+				title: '食品包装视觉检测方案',
+				desc: '适用高速产线，解决食品包装的破损、漏油等缺陷在线检测难题',
+				overview: '食品包装质量直接关系到食品安全，本方案针对食品包装产线的高速检测需求，能够实时检测包装完整性、印刷质量、封口密封性等问题。',
+				image: 'images/food_packaging_inspection.png'
+			},
+			tobacco: {
+				title: '烟草工业智能检测方案',
+				desc: '覆盖制丝、卷包等工艺段，解决烟包变形、设备堵料、虫害监测等问题',
+				overview: '针对烟草行业的特殊需求，本方案提供从原料到成品的全流程质量监控，包括烟叶质量分级、烟包外观检测、生产设备状态监控等。',
+				image: 'images/tobacco_industry_automation.png'
+			},
+			leather: {
+				title: '皮革纺织表面检测方案',
+				desc: '针对牛皮表面的色差、刀伤等多种缺陷，解决人工检测速度慢、易漏检痛点',
+				overview: '皮革纺织行业对表面质量要求严格，本方案利用高分辨率成像和AI算法，能够快速准确地识别各种表面缺陷，大幅提升检测效率和准确性。',
+				image: 'images/leather_textile_texture.png'
+			}
+		};
+
+		// 更新页面内容
+		const solution = solutions[solutionId] || solutions.industrial;
+
+		document.getElementById('solutionTitle').textContent = solution.title;
+		document.getElementById('solutionDesc').textContent = solution.desc;
+		document.getElementById('solutionOverview').textContent = solution.overview;
+		document.title = solution.title + ' - 智泓创芯';
+
+		// 更新背景图片
+		const solutionHeader = document.getElementById('solutionHeader');
+		solutionHeader.style.background = `linear-gradient(rgba(0, 21, 48, 0.9), rgba(0, 21, 48, 0.9)), url('${solution.image}')`;
+		solutionHeader.style.backgroundSize = 'cover';
+		solutionHeader.style.backgroundPosition = 'center';
+
+		// 滚动动画
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver(function(entries) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('animate-in');
+				}
+			});
+		}, observerOptions);
+
+		const animatedElements = document.querySelectorAll('.animate-in');
+		animatedElements.forEach(element => {
+			observer.observe(element);
+		});
+	});
+</script>
+</body>
+</html>

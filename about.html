@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于我们 - 智泓创芯</title>
+
+    <!-- 字体和图标 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+    <!-- 样式 -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        /* 页面特定样式 */
+        .page-header {
+            background: linear-gradient(rgba(0, 21, 48, 0.9), rgba(0, 21, 48, 0.9));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-section {
+            /*background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+            background: linear-gradient(rgba(0, 21, 48, 0.9), rgba(0, 21, 48, 0.9));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .vision-quote {
+            font-size: 2rem;
+            font-weight: 700;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .vision-author {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .values-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .value-card p {
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        .team-section {
+            padding: 80px 0;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .team-stat {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 12px;
+        }
+
+        .team-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-stat-label {
+            font-size: 1rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .about-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <span>智泓创芯</span>
+        </a>
+
+        <!-- 桌面导航 -->
+        <div class="desktop-nav">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="solutions.html" class="nav-link">解决方案</a>
+            <a href="cases.html" class="nav-link">案例</a>
+            <a href="about.html" class="nav-link active">关于我们</a>
+            <a href="contact.html" class="nav-link">联系我们</a>
+        </div>
+
+        <!-- 移动菜单按钮 -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="icon-menu"></i>
+        </button>
+    </div>
+
+    <!-- 移动导航 -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-link">首页</a>
+        <a href="solutions.html" class="mobile-nav-link">解决方案</a>
+        <a href="cases.html" class="mobile-nav-link">案例</a>
+        <a href="about.html" class="mobile-nav-link active">关于我们</a>
+        <a href="contact.html" class="mobile-nav-link">联系我们</a>
+    </div>
+</nav>
+
+<!-- 页面头部 -->
+<header class="page-header">
+    <div class="container-custom">
+        <h1 class="page-title">关于我们</h1>
+        <p class="page-subtitle">智泓创芯致力于为广泛行业提供软硬件深度融合的智能检测方案</p>
+    </div>
+</header>
+
+<!-- 公司介绍 -->
+<section class="about-section">
+    <div class="container-custom">
+        <div class="about-grid animate-in">
+            <div class="about-image">
+                <img src="images/industrial_ai_tech_hero_background.png" alt="智泓创芯公司">
+            </div>
+            <div class="about-content">
+                <h2>公司定位</h2>
+                <p>智泓创芯致力于为广泛行业提供软硬件深度融合的智能检测方案。通过创新的AI视觉技术，不仅赋能产业实现产品质量检测的自动化、智能化升级，显著提升生产效率与产品良率，更能帮助企业降低综合生产成本，优化人员配置，并通过对生产环境与操作的智能监控，从源头上促进安全生产与管理。</p>
+
+                <h2 style="margin-top: 2rem;">基本概况</h2>
+                <p>公司在上海与山东设立了两个研发中心。上海中心侧重于前沿算法研究与新方案孵化；山东中心则聚焦于工程化落地与产业化应用。双中心协同，构建了从技术创新到场景交付的完整闭环。</p>
+                <p>公司拥有一支20余人的精干团队，其中超过70%为研发与技术人员。核心成员均具备深厚的机器视觉、人工智能及工业自动化背景，确保了技术的前瞻性与项目的交付质量。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 愿景使命 -->
+<section class="vision-section">
+    <div class="container-custom">
+        <h2 class="section-title">我们的愿景</h2>
+        <div class="vision-quote">"不断技术创新与坚守，领航工业AI视觉检测时代"</div>
+        <p class="vision-author">—— 智泓创芯团队</p>
+    </div>
+</section>
+
+<!-- 核心价值观 -->
+<section class="values-section">
+    <div class="container-custom">
+        <h2 class="section-title text-center">核心价值观</h2>
+        <p class="section-subtitle">我们坚持的核心价值理念，驱动我们不断前进</p>
+
+        <div class="values-grid">
+            <div class="value-card animate-in">
+                <div class="value-icon">
+                    <i class="icon-target"></i>
+                </div>
+                <h3>领先的AI视觉核心算法</h3>
+                <p>致力于突破复杂环境、微小缺陷、高速场景下的检测极限，为客户提供稳定可靠的工业之眼。</p>
+            </div>
+
+            <div class="value-card animate-in">
+                <div class="value-icon">
+                    <i class="icon-globe"></i>
+                </div>
+                <h3>深入行业的场景化方案</h3>
+                <p>将技术扎根于电子、汽车、食品、陶瓷等一个个具体而真实的痛点，提供"看得懂工艺、解得了难题"的专属方案。</p>
+            </div>
+
+            <div class="value-card animate-in">
+                <div class="value-icon">
+                    <i class="icon-users"></i>
+                </div>
+                <h3>成熟的全栈式服务体系</h3>
+                <p>从光学设计、算法开发到系统集成与持续运维，提供端到端的交付保障，让AI视觉技术平滑落地，创造可持续的价值。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 团队实力 -->
+<section class="team-section">
+    <div class="container-custom">
+        <h2 class="section-title text-center">团队实力</h2>
+        <p class="section-subtitle">专业团队，技术领先，服务卓越</p>
+
+        <div class="team-stats">
+            <div class="team-stat animate-in">
+                <div class="team-stat-number">20+</div>
+                <div class="team-stat-label">核心团队成员</div>
+            </div>
+            <div class="team-stat animate-in">
+                <div class="team-stat-number">70%</div>
+                <div class="team-stat-label">研发技术人员占比</div>
+            </div>
+            <div class="team-stat animate-in">
+                <div class="team-stat-number">8年</div>
+                <div class="team-stat-label">平均行业经验</div>
+            </div>
+            <div class="team-stat animate-in">
+                <div class="team-stat-number">50+</div>
+                <div class="team-stat-label">服务客户数量</div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--dark);">团队优势</h3>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.125rem; line-height: 1.8; color: var(--secondary); margin-bottom: 1rem;">
+                    我们的技术团队拥有丰富的工业视觉和人工智能经验，曾在多个国家级项目中担任技术核心。团队成员毕业于国内外知名院校，具备扎实的理论基础和丰富的实践经验。
+                </p>
+                <p style="font-size: 1.125rem; line-height: 1.8; color: var(--secondary);">
+                    我们与多所高校建立联合实验室，持续进行前沿技术研究，确保我们的技术始终保持行业领先地位。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--primary); color: white; padding: 80px 0;">
+    <div class="container-custom text-center">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;color: var(--white)">加入我们，共创未来</h2>
+        <p style="font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+            我们正在寻找有激情、有才华的伙伴，一起推动工业智能化的未来
+        </p>
+        <a href="contact.html" class="btn btn-outline" style="background: white; color: var(--primary);">
+            加入团队 <i class="icon-user-plus"></i>
+        </a>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <span>智泓创芯</span>
+            </div>
+            <p class="footer-slogan">智能工业质检解决方案</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>解决方案</h3>
+            <ul>
+                <li><a href="solutions.html">工业制造</a></li>
+                <li><a href="solutions.html">汽车制造</a></li>
+                <li><a href="solutions.html">食品包装</a></li>
+                <li><a href="solutions.html">烟草工业</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>应用案例</h3>
+            <ul>
+                <li><a href="cases.html">电子板缺陷检测</a></li>
+                <li><a href="cases.html">汽车视觉检测系统</a></li>
+                <li><a href="cases.html">牛皮表面缺陷检测</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>关于我们</h3>
+            <ul>
+                <li><a href="about.html">公司介绍</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="icon-phone"></i>
+                    <span>138-0000-0000</span>
+                </div>
+                <div class="contact-item">
+                    <i class="icon-mail"></i>
+                    <span>contact@zhihong.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2024 智泓创芯 All rights reserved.</p>
+        <p>沪ICP备00000000号-1</p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// 移动菜单切换
+		const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+		const mobileNav = document.getElementById('mobileNav');
+
+		if (mobileMenuBtn && mobileNav) {
+			mobileMenuBtn.addEventListener('click', function() {
+				mobileNav.classList.toggle('active');
+
+				const icon = mobileMenuBtn.querySelector('i');
+				if (mobileNav.classList.contains('active')) {
+					icon.className = 'icon-x';
+					document.body.style.overflow = 'hidden';
+				} else {
+					icon.className = 'icon-menu';
+					document.body.style.overflow = '';
+				}
+			});
+
+			const mobileLinks = mobileNav.querySelectorAll('a');
+			mobileLinks.forEach(link => {
+				link.addEventListener('click', function() {
+					mobileNav.classList.remove('active');
+					mobileMenuBtn.querySelector('i').className = 'icon-menu';
+					document.body.style.overflow = '';
+				});
+			});
+		}
+
+		// 滚动动画
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver(function(entries) {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('animate-in');
+				}
+			});
+		}, observerOptions);
+
+		const animatedElements = document.querySelectorAll('.animate-in');
+		animatedElements.forEach(element => {
+			observer.observe(element);
+		});
+	});
+</script>
+</body>
+</html>
